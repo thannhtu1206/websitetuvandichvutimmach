@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+<!--inner banner-->
+<div class="inner-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Về chúng tôi</h1>
+      </div>
+      <div class="col-md-5">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'index' %}">Trang chủ</a></li>
+          <li class="active">Liên hệ</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!--inner banner End-->
+
+<!--Main Content Start-->
+<div class="Nội dung chính">
+  <div class="liên hệ">
+    <div class="container">
+      <div class="Hàng">
+        <div class="col-md-7">
+          {% if messages %}
+          <div class="Cảnh báo cảnh báo-thành công" id="alert-msg">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <div class="contact-form">contact
+              <div class="col-md-12">
+                <h3>Liên lạc với chúng tôi</h3>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Tên của bạn *" name="name" yêu cầu>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input type="email" class="form-control" placeholder="Email *" name="email" yêu cầu python>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Phone *" name="điện thoại" yêu cầu>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Subject" name="subject">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group">
+                  <textarea placeholder="Tin nhắn của bạn *" name="message"></textarea>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group trung tâm văn bản">
+                  <input type="submit" class="submit-btn" value="Liên lạc ">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-5">
+          <div class="contact-address">
+            <h5>Thông tin liên lạc:</h5>
+            <ul>
+              <li> <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span> <span
+                  class="add-text">Cheryy Road, Wirral Road<br>
+                  Heart care Building,<br>
+                  United Kingdom</span> </li>
+              <li> <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i> </span> <span class="add-text">+84 817832654<br>
+                  +84 </span> </li>
+              <li> <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i> </span> <span
+                  class="add-text"><strong>For Inquiry:</strong> thanhtu2kk4@gmail.com</span> </li>
+              <li> <span class="icon"><i class="fa fa-globe" aria-hidden="true"></i> </span> <span
+                  class="add-text"><strong>For Details:</strong> www.thanhtu2kk4@gmail.com</span> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Main Content End-->
+{% endblock maincontent %}
